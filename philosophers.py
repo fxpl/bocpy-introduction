@@ -21,7 +21,7 @@ def all_in_order(fork1, fork2, fork3, fork4):
         eat("3", fork3, fork4)
         eat("4", fork4, fork1)
 
-# TODO: This works, but all philosophers can't fine concurrently
+# TODO: This works, but all philosophers can't dine concurrently
 # Try using boc to allow concurrent eating.
 
 wait()

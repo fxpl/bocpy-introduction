@@ -22,20 +22,15 @@ def generate_candidates(length: int):
         yield "".join(combo)
 
 
-def crack_prefix_segment(
-    target_hash: str, prefix: str, suffix_length: int
-) -> str | None:
+def crack_prefix_segment(target_hash: str, prefix: str, suffix_length: int):
     """
     Brute-force one prefix segment of the search space.
     Tries every suffix of length `suffix_length`, prepending `prefix` to each candidate.
-    Returns the full matching plaintext, or None if no match exists in this segment.
     """
     for candidate in generate_candidates(suffix_length):
         full_candidate = prefix + candidate
         if weak_hash(full_candidate) == target_hash:
             print(f"Found solution: {full_candidate}")
-            return full_candidate
-    return None
 
 
 def crack(target_hash: str, password_length: int) -> str | None:
@@ -55,8 +50,7 @@ SECRETS = [
     {"hash": "6cc5339b87c6a267", "input_length": 3},
     {"hash": "1f55559ccec577d1", "input_length": 4},
     {"hash": "1c67d81b5d9dd07e", "input_length": 5},
-    {"hash": "c4401a130fceff97", "input_length": 6},
-    {"hash": "cf61593182bb9434", "input_length": 7},
+#    {"hash": "c4401a130fceff97", "input_length": 6},
 ]
 
 if __name__ == "__main__":
