@@ -1,2 +1,0 @@
-bocpy==0.6.0
-bocpy[boids]
